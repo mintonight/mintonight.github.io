@@ -6,7 +6,9 @@ Windows系统中一些不为人知的特殊文件夹，通过了解和利用这�
 
 `shell:startup`启动文件夹📁 ，用户登录时会自动运行这个文件夹中的程序
 
-`shell:programs`“开始"菜单中的程序文件夹
+`shell:programs`“开始"菜单中的程序文件夹(当前用户)
+
+`shell:common programs` “开始"菜单中的程序文件夹(所有用户)
 
 `shell:appdata`应用程序数据文件夹📊，存储应用程序的配置文件等
 
