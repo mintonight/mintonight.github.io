@@ -11,15 +11,11 @@
     </script>
 <meta name="description" content="# PID
 
-## PID参数[调节口诀](https://zhuanlan.zhihu.com/p/133297766)如下：
-
-1. 参数整定找最佳，从小到大顺序查。">
+PID 是“比例（Proportional）、积分（Integral）、微分（Derivative）”的缩写，是一种常见的控制算法。">
 <meta property="og:title" content="PID">
 <meta property="og:description" content="# PID
 
-## PID参数[调节口诀](https://zhuanlan.zhihu.com/p/133297766)如下：
-
-1. 参数整定找最佳，从小到大顺序查。">
+PID 是“比例（Proportional）、积分（Integral）、微分（Derivative）”的缩写，是一种常见的控制算法。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mintonight.github.io/post/PID.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/115227322?v=4">
@@ -79,7 +75,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>PID</h1>
-<h2>PID参数<a href="https://zhuanlan.zhihu.com/p/133297766" rel="nofollow">调节口诀</a>如下：</h2>
+<p>PID 是“比例（Proportional）、积分（Integral）、微分（Derivative）”的缩写，是一种常见的控制算法。</p>
+<h2>PID参数[<a href="https://zhuanlan.zhihu.com/p/133297766" rel="nofollow">调节口诀</a>](<a href="https://zhuanlan.zhihu.com/p/133297766)%E5%A6%82%E4%B8%8B%EF%BC%9A" rel="nofollow">https://zhuanlan.zhihu.com/p/133297766)如下：</a></h2>
 <ol>
 <li>参数整定找最佳，从小到大顺序查。</li>
 <li>先是比例后积分，最后再把微分加。</li>
@@ -89,9 +86,39 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>曲线波动周期长，积分时间再加长。</li>
 <li>曲线振荡频率快，先把微分降下来。</li>
 </ol>
-<p>$$
-P+I\frac{1}{s}+D\frac{N}{1+N\frac{1}{s}}
-$$</p></div>
+<hr>
+<h3>比例控制算法（P）</h3>
+<p>比例控制算法，我感觉应该是PID算法中比较核心的部分，感觉他是整个PID中的主力，至于其他的像积分控制算法，和微分控制算法，是为了消除误差，减少震荡。</p>
+<p>如果在某一个环境中，如将水倒入水缸中，假设水缸的目的水位为1m，即r(t)为一个常量D=1m，</p>
+<p>此时水缸为空，则当前的目的水位为0m，故此时误差$e(t)$为1m。此时的PID系统只有比例控制算法，故，$u(t)=Kp * e(t)$，假设${k}_{p}$为0.1，故此时$u(t)$为0.1m，将0.1m的水倒进水缸中去。<br>
+水缸中有了0.1m的水，此时的误差就为0.9m，故此时需要加入0.09m的水，可以想象，这里就是一个累加的过程，最终终将会将水缸倒满。<br>
+在理想状态下，其实有比例控制算法就完全可以满足要求，但是，如果水缸漏水怎么办，如每当你放入0.05m的水，水缸就漏0.05m的水，这就导致最后水缸是永远填不满的，并且水缸水位保持固定，这就导致了这个误差会是一个稳定值，称为稳态误差，也就是这个误差通过PID算法计算出来的u(t)完全没有起到作用。</p>
+<p>（ 在实际情况中，这种类似水缸漏水的情况往往更加常见，比如控制汽车运动，摩擦阻力就相当于是“漏水”，控制机械臂、无人机的飞行，各类阻力和消耗都可以理解为本例中的“漏水”）</p>
+<h3>积分控制算法（I）</h3>
+<p>积分控制算法，就是为了消除稳态误差，由于积分是从0时刻一直积分到当前时刻 t，并且是对e(t)函数进行积分。</p>
+<p>在到达节点位置之前，$e(t)$始终是正的，也就是它的积分始终是大于0的，如果系统存在稳态误差的话，由于误差一直不变，但是积分变呀，积分会一直积下去，之前的稳态误差是中和了比例控制算法的值，现在有一个一直增长的积分，导致每次$u(t)$的输出也在一直的增大，从而稳态误差就被消除了。到最后，误差为零了，而此时的$e(t)$也为0了，积分也就固定在某一个值了。从而每次的稳态误差就都可以被消除掉。<br>
+如果到达节点位置之后了，也就是冲过了节点的指定位置，这时候误差就变为了负的，然后由于积分正负可以相减，同样可以很好的适应这种情况。</p>
+<h3>微分控制算法（D）</h3>
+<p>用了积分控制算法，现在可以消除稳定误差了，但是考虑下面几种情况：</p>
+<p>现在的情况是不存在稳态误差，但是存在积分控制算法，那么问题就出现了，当到达了目的位置后，哪怕误差已经是0了，但是积分控制算法那里还是一个整数，导致下一次输出$u(t)$仍然为一个整数，而不是0，这样的话，就会越过目的位置，虽然之后误差就变成了负数，又会回落回目的位置，但是这样始终是震荡的，而不是一直稳定下去。<br>
+在初始状态下，如果${k}<em>{p}$或者${k}</em>{i}$设置的过大，则会导致$u(t)$的变化幅度过大。<br>
+综上，在上述情况下，加入微分控制就很有必要，其实微分控制的作用就是防止幅度过大，导致震荡或者超调，微分就是为了在输出斜率变的太大之前，在系统中引入一个有效的早期修正信号。微分可以防止震荡。</p>
+<p>当存在稳态误差的时候，由于微分对于常数的求导是0，故微分不能解决稳态误差的问题。单独使用意义不大，故需要与比例积分共同配合使用，构成PD或PID控制。</p>
+<h2>PID算法公式</h2>
+<p>PID算法公式如下图所示，${K}<em>{p}$作用于所有的项，然后给积分部分再额外配一个系数，给微分项再额外配一个系数。<br>
+$$<br>
+u\left( t\right) = {K}</em>{p}\left( {e\left( t\right) + \frac{1}{{T}<em>{t}}{\int }</em>{0}^{t}e\left( t\right) ;{dt} + {T}_{D}\frac{{de}\left( t\right) }{dt}}\right)<br>
+$$</p>
+<blockquote>
+<p>${K}<em>{p}$ —— 比例增益，Kp与比例度成倒数关系；<br>
+${T}</em>{t}$—— 积分时间常数；<br>
+${T}<em>{D}$ —— 微分时间常数；<br>
+${u}</em>{t}$ —— PID控制器的输出信号；<br>
+${e}<em>{t}$ —— 给定值${r}</em>{t}$ 与测量值之差。</p>
+</blockquote>
+<h2>参考资料</h2>
+<p>【 PID 算法 】PID 算法基础 <a href="https://blog.csdn.net/qq_42127861/article/details/117447012" rel="nofollow">https://blog.csdn.net/qq_42127861/article/details/117447012</a></p>
+<p>PID原理和调试口诀详解！<a href="https://zhuanlan.zhihu.com/p/133297766" rel="nofollow">https://zhuanlan.zhihu.com/p/133297766</a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
@@ -190,6 +217,6 @@ function iFrameLoading(){
     }
 }
 </script>
-<script>MathJax = {tex: {inlineMath: [["$", "$"]]}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 </html>
