@@ -1,11 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Jackmin的博客</title><link>https://mintonight.github.io</link><description>就没把心思放在学习上，🖕谢谢🖕</description><copyright>Jackmin的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/115227322?v=4</url><title>avatar</title><link>https://mintonight.github.io</link></image><lastBuildDate>Sun, 07 Jul 2024 09:31:54 +0000</lastBuildDate><managingEditor>Jackmin的博客</managingEditor><ttl>60</ttl><webMaster>Jackmin的博客</webMaster><item><title>平衡就机器人学习笔记2</title><link>https://mintonight.github.io/post/ping-heng-jiu-ji-qi-ren-xue-xi-bi-ji-2.html</link><description># 平衡机器人学习笔记2&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Jackmin的博客</title><link>https://mintonight.github.io</link><description>没把心思放在学习上，🖕谢谢🖕</description><copyright>Jackmin的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/115227322?v=4</url><title>avatar</title><link>https://mintonight.github.io</link></image><lastBuildDate>Sun, 07 Jul 2024 09:36:34 +0000</lastBuildDate><managingEditor>Jackmin的博客</managingEditor><ttl>60</ttl><webMaster>Jackmin的博客</webMaster><item><title>平衡就机器人学习笔记2</title><link>https://mintonight.github.io/post/ping-heng-jiu-ji-qi-ren-xue-xi-bi-ji-2.html</link><description># 平衡机器人学习笔记2&#13;
 &#13;
 ## 控制流程&#13;
 ![image](https://github.com/mintonight/mintonight.github.io/assets/115227322/b554c802-6804-48f5-98a5-53aa6d6af945)&#13;
 &#13;
 &#13;
-基于模型设计（MBD）的设计思路。</description><guid isPermaLink="true">https://mintonight.github.io/post/ping-heng-jiu-ji-qi-ren-xue-xi-bi-ji-2.html</guid><pubDate>Sun, 07 Jul 2024 09:16:36 +0000</pubDate></item><item><title>校园风光</title><link>https://mintonight.github.io/post/xiao-yuan-feng-guang.html</link><description>图书馆路上的凉亭🌳&#13;
+基于模型设计（MBD）的设计思路。</description><guid isPermaLink="true">https://mintonight.github.io/post/ping-heng-jiu-ji-qi-ren-xue-xi-bi-ji-2.html</guid><pubDate>Sun, 07 Jul 2024 09:16:36 +0000</pubDate></item><item><title>平衡机器人学习笔记1</title><link>https://mintonight.github.io/post/ping-heng-ji-qi-ren-xue-xi-bi-ji-1.html</link><description># 平衡机器人学习笔记1&#13;
+&#13;
+## 有刷直流电机的工作原理&#13;
+&#13;
+1、电机和减速器的扭矩（N·m）=电机功率（W）/(2*π*转速/60)。</description><guid isPermaLink="true">https://mintonight.github.io/post/ping-heng-ji-qi-ren-xue-xi-bi-ji-1.html</guid><pubDate>Sun, 07 Jul 2024 09:06:20 +0000</pubDate></item><item><title>校园风光</title><link>https://mintonight.github.io/post/xiao-yuan-feng-guang.html</link><description>图书馆路上的凉亭🌳&#13;
 ![1720340503438](https://github.com/mintonight/mintonight.github.io/assets/115227322/9cc5c1c3-8035-454a-bfa2-1198dc40731b)&#13;
 盛夏的蓝天白云☁️☀&#13;
 ![1720340503463](https://github.com/mintonight/mintonight.github.io/assets/115227322/df5fc151-1139-47ad-8fec-38ff32a9f46e)&#13;

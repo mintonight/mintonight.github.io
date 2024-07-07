@@ -9,21 +9,21 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="# PID
+<meta name="description" content="# 平衡机器人学习笔记1
 
-## PID参数[调节口诀](https://zhuanlan.zhihu.com/p/133297766)如下：
+## 有刷直流电机的工作原理
 
-1. 参数整定找最佳，从小到大顺序查。">
-<meta property="og:title" content="PID调参口诀">
-<meta property="og:description" content="# PID
+1、电机和减速器的扭矩（N·m）=电机功率（W）/(2*π*转速/60)。">
+<meta property="og:title" content="平衡机器人学习笔记1">
+<meta property="og:description" content="# 平衡机器人学习笔记1
 
-## PID参数[调节口诀](https://zhuanlan.zhihu.com/p/133297766)如下：
+## 有刷直流电机的工作原理
 
-1. 参数整定找最佳，从小到大顺序查。">
+1、电机和减速器的扭矩（N·m）=电机功率（W）/(2*π*转速/60)。">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://mintonight.github.io/post/PID-diao-can-kou-jue.html">
+<meta property="og:url" content="https://mintonight.github.io/post/ping-heng-ji-qi-ren-xue-xi-bi-ji-1.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/115227322?v=4">
-<title>PID调参口诀</title>
+<title>平衡机器人学习笔记1</title>
 
 
 </head>
@@ -54,7 +54,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 
 <body>
     <div id="header">
-<h1 class="postTitle">PID调参口诀</h1>
+<h1 class="postTitle">平衡机器人学习笔记1</h1>
 <div class="title-right">
     <a href="https://mintonight.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
         <svg class="octicon" width="16" height="16">
@@ -62,7 +62,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         </svg>
     </a>
     
-    <a href="https://github.com/mintonight/mintonight.github.io/issues/2" target="_blank" class="btn btn-invisible circle" title="Issue">
+    <a href="https://github.com/mintonight/mintonight.github.io/issues/11" target="_blank" class="btn btn-invisible circle" title="Issue">
         <svg class="octicon" width="16" height="16">
             <path id="pathIssue" fill-rule="evenodd"></path>
         </svg>
@@ -78,20 +78,27 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h1>PID</h1>
-<h2>PID参数<a href="https://zhuanlan.zhihu.com/p/133297766" rel="nofollow">调节口诀</a>如下：</h2>
-<ol>
-<li>参数整定找最佳，从小到大顺序查。</li>
-<li>先是比例后积分，最后再把微分加。</li>
-<li>曲线振荡很频繁，比例度盘要放大。</li>
-<li>曲线漂浮绕大湾，比例度盘往小扳。</li>
-<li>曲线偏离回复慢，积分时间往下降。</li>
-<li>曲线波动周期长，积分时间再加长。</li>
-<li>曲线振荡频率快，先把微分降下来。</li>
-</ol>
-<p>$$
-P+I\frac{1}{s}+D\frac{N}{1+N\frac{1}{s}}
-$$</p></div>
+<div class="markdown-body" id="postBody"><h1>平衡机器人学习笔记1</h1>
+<h2>有刷直流电机的工作原理</h2>
+<p>1、电机和减速器的扭矩（N·m）=电机功率（W）/(2<em>π</em>转速/60)。</p>
+<p>2、占空比是指直流电机在一个通电与断电周期中其通电时间所占的比例，占空比越大，相对提供的功率越小。</p>
+<p>3、直流电机三相绕组按照规律周期性通电，转速越高，通电频率越高。</p>
+<p>4、增速过程（据第1、2、3条综合分析），电机扭矩不变时，占空比越小，提供功率越大，转速越高，电机绕组通电频率越高，导致扭矩有所增加，用以克服加速增加的阻力，直至平衡、稳速。</p>
+<h2>DSP芯片</h2>
+<p>DSP芯片（Digital Signal Processor），即数字信号处理器，是一种适合数字信号处理运算的微处理器，其实时运行速度高于通用的微处理器，主要应用于实现实时、快速的数字信号处理算法和复杂的控制算法等。</p>
+<p>DSP 技术的核心在于将模拟信号转换为数字信号</p>
+<h2>mpu6050</h2>
+<p>MPU6050 是一款集成了 3 轴加速度计和 3 轴陀螺仪的 6 轴运动处理传感器。</p>
+<p>它具有体积小、功耗低、精度较高等优点，被广泛应用于无人机、智能手机、机器人、平衡车等需要进行姿态检测和运动追踪的设备中。</p>
+<p>MPU6050 通过 I2C 接口与微控制器进行通信，能够输出加速度和角速度的原始数据。使用者可以根据这些数据，通过算法计算出设备的姿态角（如俯仰角、滚转角、偏航角）等信息。</p>
+<p>在实际应用中，为了获得更准确的姿态信息，通常需要对 MPU6050 的原始数据进行滤波和校准处理。例如，使用卡尔曼滤波算法可以有效地融合加速度计和陀螺仪的数据，提高姿态解算的精度和稳定性。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/mintonight/mintonight.github.io/assets/115227322/04cc72dd-fe2a-453a-bafe-4f29deced1b7"><img src="https://github.com/mintonight/mintonight.github.io/assets/115227322/04cc72dd-fe2a-453a-bafe-4f29deced1b7" alt="image-20240705192409088" style="max-width: 100%;"></a></p>
+<h2>单边拉氏变换的性质 (乘以单位阶跃函数u (t) 后)</h2>
+<p>叠加原理、微分定理、积分定理、衰减定理、延时定理、初值定理、修值定理、时间尺度改变、周期函数的象函数、卷积的象函数</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/mintonight/mintonight.github.io/assets/115227322/b8999298-635d-4d92-b057-ae08d2c0e0f4"><img src="https://github.com/mintonight/mintonight.github.io/assets/115227322/b8999298-635d-4d92-b057-ae08d2c0e0f4" alt="image" style="max-width: 100%;"></a></p>
+<h3>参考资料</h3>
+<p>豆包ai <a href="https://www.doubao.com/chat/" rel="nofollow">https://www.doubao.com/chat/</a></p>
+<p>开源两轮智能平衡移动机器人电控系统开发  <a href="https://www.eduvstc.cn/p/t_pc/course_pc_detail/video/v_615ffbf5e4b0dfaf7faac0a5" rel="nofollow">https://www.eduvstc.cn/p/t_pc/course_pc_detail/video/v_615ffbf5e4b0dfaf7faac0a5</a>****</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
@@ -190,6 +197,6 @@ function iFrameLoading(){
     }
 }
 </script>
-<script>MathJax = {tex: {inlineMath: [["$", "$"]]}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 </html>
